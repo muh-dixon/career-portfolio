@@ -1,26 +1,79 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: rgb(245, 245, 245);
+  --foreground: #242424;
+  --color-paper: #ffffff;
+  --color-ink: #161c2d;
+  --color-accent: #142ef0;
+  --color-accent-soft: rgba(8, 15, 72, 0.12);
+  --color-secondary: #080f48;
+  --color-border: rgba(8, 15, 72, 0.18);
+  --color-muted: rgba(27, 35, 60, 0.82);
+  --color-nav: rgba(22, 28, 45, 0.84);
+  --color-glow-a: rgba(8, 15, 72, 0.12);
+  --color-glow-b: rgba(62, 84, 211, 0.16);
+  --nav-surface: rgba(255, 255, 255, 0.94);
+  --gradient-panel: linear-gradient(145deg, #080f48 0%, #1c2670 55%, #3e54d3 100%);
+  --gradient-contact: linear-gradient(135deg, #e8eeff 0%, #ffffff 45%, #dde6ff 100%);
+  --shadow-card: 0 20px 80px rgba(8, 15, 72, 0.14);
+  --button-secondary-bg: rgba(255, 255, 255, 0.92);
+  --button-secondary-text: #080f48;
+  --button-secondary-border: rgba(8, 15, 72, 0.22);
+}
+
+html[data-theme="dark"] {
+  --background: #0c1026;
+  --foreground: #edf1ff;
+  --color-paper: #121833;
+  --color-ink: #edf1ff;
+  --color-accent: #8ea0ff;
+  --color-accent-soft: rgba(142, 160, 255, 0.16);
+  --color-secondary: #c5d0ff;
+  --color-border: rgba(142, 160, 255, 0.18);
+  --color-muted: rgba(237, 241, 255, 0.76);
+  --color-nav: rgba(237, 241, 255, 0.76);
+  --color-glow-a: rgba(72, 88, 196, 0.24);
+  --color-glow-b: rgba(142, 160, 255, 0.18);
+  --nav-surface: rgba(18, 24, 51, 0.84);
+  --gradient-panel: linear-gradient(145deg, #10173a 0%, #18245b 55%, #4b60e2 100%);
+  --gradient-contact: linear-gradient(135deg, #141b3b 0%, #101633 45%, #1b2350 100%);
+  --shadow-card: 0 24px 70px rgba(2, 6, 23, 0.42);
+  --button-secondary-bg: rgba(18, 24, 51, 0.78);
+  --button-secondary-text: #edf1ff;
+  --button-secondary-border: rgba(142, 160, 255, 0.22);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--background);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(8, 15, 72, 0.18);
+}
+
+.font-display {
+  font-family: var(--font-display), serif;
 }
