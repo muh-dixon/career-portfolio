@@ -9,8 +9,7 @@ import {
   strengths,
 } from "@/data/portfolio";
 import { MotionReveal } from "@/components/motion-reveal";
-import { ThemeToggle } from "@/components/theme-toggle";
-import Image from "next/image";
+import { SiteNav } from "@/components/site-nav";
 
 export default function Home() {
   return (
@@ -18,55 +17,7 @@ export default function Home() {
       <section className="relative overflow-hidden px-6 pb-16 pt-6 sm:px-10 lg:px-16">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-10">
           <MotionReveal delay={0.04}>
-            <nav
-              className="flex items-center justify-between rounded-full border border-[var(--color-border)] px-5 py-3 backdrop-blur"
-              style={{
-                background: "var(--nav-surface)",
-                boxShadow: "0 10px 30px rgba(8,15,72,0.08)",
-              }}
-            >
-              <a
-                href="#top"
-                className="flex items-center gap-3 font-display text-xl font-semibold text-[var(--color-accent)]"
-              >
-                <Image
-                  src="/portfolio-logo.png"
-                  alt="Shabil Dixon logo"
-                  width={44}
-                  height={44}
-                  className="h-11 w-11 object-contain"
-                  priority
-                />
-                <span>{profile.name}</span>
-              </a>
-              <div className="flex items-center gap-3 text-sm font-medium text-[var(--color-nav)]">
-                <a
-                  href="#projects"
-                  className="transition hover:text-[var(--color-accent)]"
-                >
-                  Projects
-                </a>
-                <a
-                  href="#experience"
-                  className="transition hover:text-[var(--color-accent)]"
-                >
-                  Experience
-                </a>
-                <a
-                  href="#about"
-                  className="transition hover:text-[var(--color-accent)]"
-                >
-                  About
-                </a>
-                <a
-                  href="#contact"
-                  className="transition hover:text-[var(--color-accent)]"
-                >
-                  Contact
-                </a>
-                <ThemeToggle />
-              </div>
-            </nav>
+            <SiteNav name={profile.name} />
           </MotionReveal>
 
           <div
