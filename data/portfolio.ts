@@ -112,7 +112,7 @@ export const experience = [
     company: "Skinstric AI",
     role: "Frontend Developer Intern",
     location: "Remote",
-    period: "April 2026",
+    period: "Apr. 2026 - Apr. 2026",
     highlights: [
       "Built and deployed a full-stack skincare analysis application using Next.js, React, and TypeScript.",
       "Integrated REST APIs for user submission flows and image-based analysis, including Base64 image handling.",
@@ -124,7 +124,7 @@ export const experience = [
     company: "Frontend Simplified",
     role: "Frontend Developer Intern",
     location: "Remote",
-    period: "January 2026 - February 2026",
+    period: "Jan. 2026 - Feb. 2026",
     highlights: [
       "Built and deployed multiple React and Next.js applications, including marketplace and full-stack subscription products.",
       "Implemented authentication, dynamic routing, state management, and real-time UI updates across app flows.",
