@@ -1,21 +1,22 @@
 export const profile = {
   name: "Shabil Dixon",
   title: "Software Engineer",
-  headline: "Frontend-focused engineer with systems and security experience.",
+  headline:
+    "Frontend-focused software engineer building polished, API-driven full-stack web applications.",
   intro:
-    "I build responsive web applications with a growing full-stack toolkit and a strong interest in how software behaves across the UI, API, and systems layers. My background blends modern frontend work with hands-on experience in systems programming, networking, and security-focused problem solving.",
+    "I work with React, Next.js, TypeScript, API routes, Supabase/PostgreSQL, authentication, and AI-assisted product workflows to build useful web apps with thoughtful UI and real-world behavior.",
   currentFocus:
-    "React and Next.js application work, API integration, and performance-minded product development.",
+    "Polished frontend experiences with growing full-stack depth across APIs, auth, databases, and product-focused AI features.",
   location: "Waldorf, MD",
   email: "shabil.dixon@gmail.com",
   githubUrl: "https://github.com/muh-dixon",
   linkedinUrl: "https://www.linkedin.com/in/muhammad-shabil-dixon-ba7ab8263/",
   learning:
-    "Modern frontend frameworks, API development, full-stack integration, and scalable performance patterns.",
+    "Currently deepening backend and full-stack fundamentals through authentication, API route design, PostgreSQL persistence, and secure user-specific data flows.",
   collaboration:
     "Frontend and full-stack projects, especially products with real users, AI-assisted workflows, or security-aware engineering.",
   askAbout:
-    "Responsive interfaces, REST API integration, systems concepts, and the process of turning tutorial foundations into stronger production-ready work.",
+    "Responsive interfaces, authenticated workflows, REST API integration, database-backed features, and the request/response lifecycle behind usable products.",
 } as const;
 
 export const quickFacts = [
@@ -29,7 +30,7 @@ export const quickFacts = [
   },
   {
     label: "Current Focus",
-    value: "Frontend engineering, API-driven experiences, and reliable full-stack fundamentals.",
+    value: "Frontend engineering, API-driven apps, authentication, and database-backed workflows.",
   },
   {
     label: "Open To",
@@ -43,13 +44,18 @@ export const skills = [
   "React",
   "Next.js",
   "Tailwind CSS",
+  "Supabase",
+  "PostgreSQL",
+  "Authentication",
+  "API Routes",
+  "OpenAI API",
   "Python",
   "Java",
   "REST APIs",
   "Firebase",
-  "Git",
+  "Vercel",
+  "Git/GitHub",
   "Linux",
-  "Systems Programming",
 ] as const;
 
 export const skillGroups = [
@@ -63,7 +69,21 @@ export const skillGroups = [
   },
   {
     label: "Backend & Platform",
-    items: ["REST APIs", "Firebase", "Firestore", "Stripe", "Vercel"],
+    items: [
+      "Full-Stack Development",
+      "API Routes",
+      "Next.js API Routes",
+      "REST APIs",
+      "Supabase",
+      "PostgreSQL",
+      "Firebase",
+      "Firestore",
+      "Vercel",
+    ],
+  },
+  {
+    label: "Auth & AI",
+    items: ["Authentication", "Authorization", "OpenAI API", "AI-Assisted Product Workflows", "Stripe"],
   },
   {
     label: "Systems & Security",
@@ -73,15 +93,79 @@ export const skillGroups = [
 
 export const featuredProjects = [
   {
+    name: "CareerTrack Dashboard",
+    summary:
+      "An authenticated full-stack job application tracker built with Next.js, React, TypeScript, Supabase Auth, PostgreSQL, and Tailwind CSS. Users can sign up, log in, and manage their own job applications through protected API routes and user-specific data access.",
+    highlights: [
+      "Supabase Auth",
+      "PostgreSQL persistence",
+      "Protected Next.js API routes",
+      "Proxy-based route protection",
+      "Row Level Security (RLS)",
+      "CRUD operations",
+      "Search and filtering",
+      "Duplicate detection",
+      "Modal editing",
+      "Responsive dashboard UI",
+      "Deployed on Vercel",
+    ],
+    stack: ["Next.js", "React", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS", "Vercel"],
+    liveUrl: "https://job-app-tracker-dun.vercel.app/?auth=login",
+    repoUrl: "https://github.com/muh-dixon/job-app-tracker",
+    previewLabel: "Authenticated job application dashboard",
+    previewDomain: "job-app-tracker-dun.vercel.app",
+    accent: "from-[#0d1b2a] via-[#1b4965] to-[#5fa8d3]",
+  },
+  {
+    name: "AI Resume Assistant",
+    summary:
+      "A full-stack AI-powered resume assistant that transforms rough resume bullets and project descriptions into recruiter-ready language. It includes tone selection, before/after comparison, backend API integration, loading states, error handling, and copy-to-clipboard functionality.",
+    highlights: [
+      "OpenAI API integration",
+      "Next.js API route",
+      "Tone selection",
+      "Before/after comparison",
+      "Loading and error states",
+      "Copy-to-clipboard",
+      "Responsive branded UI",
+      "Deployed on Vercel",
+    ],
+    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "OpenAI API", "Vercel"],
+    liveUrl: "https://ai-resume-helper-five.vercel.app/",
+    repoUrl: "https://github.com/muh-dixon/ai-resume-helper",
+    previewLabel: "AI resume bullet refinement workflow",
+    previewDomain: "ai-resume-helper-five.vercel.app",
+    accent: "from-[#112a46] via-[#2f6690] to-[#81c3d7]",
+  },
+  {
     name: "Skinstric AI Platform",
     summary:
       "A full-stack skincare analysis experience built with Next.js, React, and TypeScript. It features a multi-step onboarding flow, image-based analysis requests, reusable UI architecture, and persistent client-side state.",
+    highlights: [
+      "Multi-step product flow",
+      "Image-based analysis requests",
+      "REST API integration",
+      "Reusable component structure",
+      "Client-side persistence",
+      "Responsive Tailwind UI",
+    ],
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "REST APIs"],
     liveUrl: "https://skinstric-internship-nu.vercel.app/",
     repoUrl: "https://github.com/muh-dixon/skinstric-internship",
     previewLabel: "AI skincare analysis workflow",
     previewDomain: "skinstric-internship-nu.vercel.app",
     accent: "from-[#0c214f] via-[#174a84] to-[#48c0b5]",
+  },
+] as const;
+
+export const additionalProjects = [
+  {
+    name: "Ultraverse Market",
+    summary:
+      "A responsive NFT marketplace interface powered by external APIs. It demonstrates dynamic routing, marketplace browsing, skeleton states, sorting, pagination, and animated UI presentation.",
+    stack: ["React", "React Router", "API Integration", "AOS", "Responsive Design"],
+    liveUrl: "https://shabil-internship-main.vercel.app/",
+    repoUrl: "https://github.com/muh-dixon/shabil-internship-main",
   },
   {
     name: "Summarist Platform",
@@ -90,20 +174,6 @@ export const featuredProjects = [
     stack: ["Next.js", "Redux Toolkit", "Firebase", "Firestore", "Stripe"],
     liveUrl: "https://summarist-sigma.vercel.app/",
     repoUrl: "https://github.com/muh-dixon/summarist",
-    previewLabel: "Book summaries, accounts, and subscriptions",
-    previewDomain: "summarist-sigma.vercel.app",
-    accent: "from-[#101c3d] via-[#205375] to-[#f66b0e]",
-  },
-  {
-    name: "Ultraverse Market",
-    summary:
-      "A responsive NFT marketplace interface powered by external APIs. It demonstrates dynamic routing, marketplace browsing, skeleton states, sorting, pagination, and animated UI presentation.",
-    stack: ["React", "React Router", "API Integration", "AOS", "Responsive Design"],
-    liveUrl: "https://shabil-internship-main.vercel.app/",
-    repoUrl: "https://github.com/muh-dixon/shabil-internship-main",
-    previewLabel: "Marketplace browsing with live content",
-    previewDomain: "shabil-internship-main.vercel.app",
-    accent: "from-[#1d3557] via-[#457b9d] to-[#a8dadc]",
   },
 ] as const;
 
@@ -156,13 +226,13 @@ export const strengths = [
       "I care about responsive layouts, clear user flows, and interfaces that feel polished instead of merely functional.",
   },
   {
-    title: "Systems Perspective",
+    title: "Full-Stack Growth",
     description:
-      "Coursework and hands-on projects in networking, cryptography, parsing, and low-level concepts help me reason beyond the UI layer.",
+      "I am growing into full-stack development by adding backend APIs, authentication, authorization, and database-backed workflows to my frontend foundation.",
   },
   {
-    title: "Continuous Growth",
+    title: "Product-Minded Engineering",
     description:
-      "I actively turn learning projects into stronger portfolio pieces by improving architecture, delivery quality, and real-world usability.",
+      "I care about usability, maintainability, and understanding the full request/response lifecycle behind features people can actually use.",
   },
 ] as const;

@@ -1,50 +1,49 @@
 import {
   education,
   experience,
-  featuredProjects,
   profile,
   quickFacts,
   skillGroups,
   skills,
   strengths,
 } from "@/data/portfolio";
-import { MotionReveal } from "@/components/motion-reveal";
+import { ProjectsSection } from "@/components/projects-section";
 import { SiteNav } from "@/components/site-nav";
 
 export default function Home() {
   return (
-    <main className="flex-1">
-      <section className="relative overflow-hidden px-6 pb-16 pt-6 sm:px-10 lg:px-16">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-10">
-          <MotionReveal delay={0.04}>
+    <main className="portfolio-shell flex-1">
+      <section className="relative overflow-hidden pb-16 pt-6 sm:pb-20 lg:pb-24">
+        <div className="mx-auto flex w-full max-w-7xl flex-col gap-12 px-4 sm:px-6 lg:px-8">
+          <div>
             <SiteNav name={profile.name} />
-          </MotionReveal>
+          </div>
 
           <div
             id="top"
-            className="grid gap-10 rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-paper)] px-6 py-10 shadow-[var(--shadow-card)] md:px-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:px-14 lg:py-16"
+            className="surface-panel hero-panel grid gap-12 rounded-[2rem] px-6 py-12 md:px-10 lg:grid-cols-[1.16fr_0.84fr] lg:items-end lg:px-14 lg:py-20"
           >
-            <MotionReveal delay={0.12} className="max-w-3xl">
+            <div className="relative z-10 max-w-3xl">
               <div className="max-w-3xl">
                 <p className="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-[var(--color-secondary)]">
                   {profile.title}
                 </p>
-                <h1 className="font-display text-5xl leading-none text-[var(--color-ink)] sm:text-6xl lg:text-7xl">
+                <h1 className="hero-title font-display text-5xl leading-none sm:text-7xl lg:text-8xl">
                   {profile.headline}
                 </h1>
-                <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-muted)] sm:text-xl">
+                <p className="mt-8 max-w-2xl text-lg leading-8 text-[var(--color-muted)] sm:text-xl">
                   {profile.intro}
                 </p>
                 <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                   <a
                     href="#projects"
-                    className="inline-flex items-center justify-center rounded-full bg-[var(--color-accent)] px-6 py-3 text-sm font-semibold text-white transition hover:translate-y-[-1px] hover:bg-[#0d1457]"
+                    className="primary-button inline-flex items-center justify-center rounded-full bg-[var(--color-accent)] px-6 py-3 text-sm font-semibold text-white transition hover:translate-y-[-2px]"
                   >
-                    View Featured Work
+                    <span>View Featured Work</span>
                   </a>
                   <a
                     href={`mailto:${profile.email}`}
-                    className="inline-flex items-center justify-center rounded-full border px-6 py-3 text-sm font-semibold transition hover:translate-y-[-1px]"
+                    className="inline-flex items-center justify-center rounded-full border px-6 py-3 text-sm font-semibold transition hover:translate-y-[-2px] hover:border-[var(--color-accent)] hover:shadow-md"
                     style={{
                       background: "var(--button-secondary-bg)",
                       color: "var(--button-secondary-text)",
@@ -55,11 +54,11 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-            </MotionReveal>
+            </div>
 
-            <MotionReveal delay={0.2}>
+            <div className="relative z-10">
               <div
-                className="rounded-[1.75rem] p-6 text-white"
+                className="surface-panel rounded-[1.75rem] p-6 text-white"
                 style={{ background: "var(--gradient-panel)" }}
               >
                 <p className="text-sm uppercase tracking-[0.28em] text-white/70">
@@ -72,7 +71,7 @@ export default function Home() {
                   {quickFacts.map((fact) => (
                     <div
                       key={fact.label}
-                      className="rounded-[1.25rem] border border-white/15 bg-white/10 px-4 py-3 backdrop-blur"
+                      className="rounded-[1.25rem] border border-white/15 bg-white/10 px-4 py-3 transition hover:bg-white/15"
                     >
                       <p className="text-xs uppercase tracking-[0.22em] text-white/65">
                         {fact.label}
@@ -87,147 +86,22 @@ export default function Home() {
                   {skills.map((skill) => (
                     <span
                       key={skill}
-                      className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium backdrop-blur"
+                      className="skill-chip rounded-full px-4 py-2 text-sm font-medium"
                     >
                       {skill}
                     </span>
                   ))}
                 </div>
               </div>
-            </MotionReveal>
-          </div>
-        </div>
-        <div
-          className="pointer-events-none absolute left-[-8rem] top-28 h-56 w-56 rounded-full blur-3xl"
-          style={{ background: "var(--color-glow-a)" }}
-        />
-        <div
-          className="pointer-events-none absolute bottom-10 right-[-7rem] h-72 w-72 rounded-full blur-3xl"
-          style={{ background: "var(--color-glow-b)" }}
-        />
-      </section>
-
-      <section id="projects" className="px-6 py-16 sm:px-10 lg:px-16">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-8">
-          <div className="flex flex-col gap-3" data-aos="fade-up">
-            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[var(--color-secondary)]">
-              Featured Projects
-            </p>
-            <h2 className="font-display text-4xl text-[var(--color-ink)] sm:text-5xl">
-              Product work that reflects both frontend polish and technical range.
-            </h2>
-            <p className="max-w-3xl text-lg leading-8 text-[var(--color-muted)]">
-              These projects come directly from my current portfolio and resume,
-              with an emphasis on UI quality, API integration, routing, state,
-              and end-to-end feature delivery.
-            </p>
-          </div>
-
-          <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
-            {featuredProjects.map((project, index) => (
-              <article
-                key={project.name}
-                className="flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-[var(--color-border)] bg-[var(--color-paper)] shadow-[var(--shadow-card)]"
-                data-aos="fade-up"
-                data-aos-delay={index * 90}
-              >
-                <div
-                  className={`relative min-h-64 bg-gradient-to-br ${project.accent} p-6 text-white`}
-                >
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.3),transparent_30%),linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:auto,22px_22px,22px_22px]" />
-                  <div className="relative z-10 flex h-full flex-col justify-between">
-                    <div className="flex items-start justify-between gap-4">
-                      <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white/80">
-                        0{index + 1}
-                      </p>
-                      <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-white/85 backdrop-blur">
-                        Featured Build
-                      </span>
-                    </div>
-
-                    <div className="max-w-md rounded-[1.25rem] border border-white/18 bg-[rgba(255,255,255,0.9)] p-4 text-[#10203a] shadow-xl">
-                      <div className="flex items-center gap-2">
-                        <span className="h-2.5 w-2.5 rounded-full bg-[#ff6b6b]" />
-                        <span className="h-2.5 w-2.5 rounded-full bg-[#ffd166]" />
-                        <span className="h-2.5 w-2.5 rounded-full bg-[#06d6a0]" />
-                      </div>
-                      <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#42617f]">
-                        {project.previewLabel}
-                      </p>
-                      <p className="mt-2 font-display text-3xl leading-tight">
-                        {project.name}
-                      </p>
-                      <p className="mt-2 text-sm text-[#53687d]">
-                        {project.previewDomain}
-                      </p>
-                      <div className="mt-5 grid gap-2">
-                        <div className="h-3 w-28 rounded-full bg-[#d7e2ec]" />
-                        <div className="h-3 w-full rounded-full bg-[#d7e2ec]" />
-                        <div className="h-3 w-4/5 rounded-full bg-[#d7e2ec]" />
-                      </div>
-                      <div className="mt-5 flex flex-wrap gap-2">
-                        {project.stack.slice(0, 3).map((item) => (
-                          <span
-                            key={item}
-                            className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-[#183a5b]"
-                          >
-                            {item}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-1 flex-col p-6">
-                  <h3 className="font-display text-3xl text-[var(--color-ink)]">
-                    {project.name}
-                  </h3>
-                  <p className="mt-4 flex-1 leading-7 text-[var(--color-muted)]">
-                    {project.summary}
-                  </p>
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {project.stack.map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-full bg-[var(--color-accent-soft)] px-3 py-1 text-sm font-medium text-[var(--color-accent)]"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="mt-8 flex flex-wrap gap-3">
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="rounded-full bg-[var(--color-accent)] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#0d1457]"
-                    >
-                      Live Demo
-                    </a>
-                    <a
-                      href={project.repoUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="rounded-full border px-4 py-2 text-sm font-semibold transition hover:translate-y-[-1px]"
-                      style={{
-                        background: "var(--button-secondary-bg)",
-                        color: "var(--button-secondary-text)",
-                        borderColor: "var(--button-secondary-border)",
-                      }}
-                    >
-                      GitHub
-                    </a>
-                  </div>
-                </div>
-              </article>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="experience" className="px-6 py-16 sm:px-10 lg:px-16">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-8">
+      <ProjectsSection />
+
+      <section id="experience" className="cinematic-section py-16 sm:py-20 lg:py-24">
+        <div className="mx-auto flex w-full max-w-7xl flex-col gap-12 px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-3" data-aos="fade-up">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[var(--color-secondary)]">
               Experience
@@ -242,7 +116,7 @@ export default function Home() {
               {experience.map((role) => (
                 <article
                   key={`${role.company}-${role.role}`}
-                  className="rounded-[1.75rem] border border-[var(--color-border)] bg-[var(--color-paper)] p-8 shadow-[var(--shadow-card)]"
+                  className="surface-panel rounded-[1.75rem] p-8"
                   data-aos="fade-up"
                 >
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
@@ -257,7 +131,7 @@ export default function Home() {
                         {role.location}
                       </p>
                     </div>
-                    <span className="rounded-full bg-[var(--color-accent-soft)] px-4 py-2 text-sm font-semibold text-[var(--color-accent)]">
+                    <span className="skill-chip rounded-full px-4 py-2 text-sm font-semibold text-[var(--color-accent)]">
                       {role.period}
                     </span>
                   </div>
@@ -265,7 +139,7 @@ export default function Home() {
                     {role.highlights.map((highlight) => (
                       <div
                         key={highlight}
-                        className="rounded-[1.2rem] border border-[var(--color-border)] bg-white/70 p-4"
+                        className="rounded-[1.2rem] border border-[var(--color-border)] p-4 transition hover:border-[var(--color-accent)]"
                         style={{
                           background:
                             "color-mix(in srgb, var(--color-paper) 80%, transparent)",
@@ -282,7 +156,7 @@ export default function Home() {
             </div>
 
             <aside
-              className="rounded-[1.75rem] p-8 text-[rgba(255,255,255,0.88)] shadow-[var(--shadow-card)]"
+              className="surface-panel rounded-[1.75rem] p-8 text-[rgba(255,255,255,0.88)]"
               style={{ background: "var(--gradient-panel)" }}
               data-aos="fade-left"
             >
@@ -332,10 +206,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="px-6 py-16 sm:px-10 lg:px-16">
-        <div className="mx-auto grid w-full max-w-6xl gap-6 lg:grid-cols-[0.92fr_1.08fr]">
+      <section id="about" className="cinematic-section py-16 sm:py-20 lg:py-24">
+        <div className="mx-auto grid w-full max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8">
           <div
-            className="rounded-[1.75rem] border border-[var(--color-border)] bg-[var(--color-paper)] p-8 shadow-[var(--shadow-card)]"
+            className="surface-panel rounded-[1.75rem] p-8"
             data-aos="fade-up"
           >
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[var(--color-secondary)]">
@@ -348,7 +222,7 @@ export default function Home() {
               {strengths.map((strength) => (
                 <div
                   key={strength.title}
-                  className="rounded-[1.25rem] border border-[var(--color-border)] bg-white/70 p-5"
+                  className="rounded-[1.25rem] border border-[var(--color-border)] p-5 transition hover:border-[var(--color-accent)]"
                   style={{
                     background:
                       "color-mix(in srgb, var(--color-paper) 78%, transparent)",
@@ -366,16 +240,15 @@ export default function Home() {
           </div>
 
           <div
-            className="rounded-[1.75rem] p-8 text-[rgba(255,255,255,0.84)] shadow-[var(--shadow-card)]"
+            className="surface-panel rounded-[1.75rem] p-8 text-[rgba(255,255,255,0.84)]"
             style={{ background: "color-mix(in srgb, var(--background) 72%, #000f30)" }}
             data-aos="fade-up"
             data-aos-delay="120"
           >
             <p className="text-lg leading-8">
-              I&apos;m especially interested in building efficient, user-focused
-              software while applying what I&apos;ve learned about performance,
-              security, and system behavior. That mix is what makes product work
-              exciting to me.
+              I build polished frontend experiences and I&apos;m growing into
+              full-stack development by adding backend APIs, authentication,
+              and database-backed workflows to my projects.
             </p>
             <p className="mt-5 text-lg leading-8">
               {profile.askAbout}
@@ -394,7 +267,7 @@ export default function Home() {
                     {group.items.map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-white/12 bg-white/10 px-3 py-1 text-sm text-white/90"
+                        className="skill-chip rounded-full px-3 py-1 text-sm text-white/90"
                       >
                         {item}
                       </span>
@@ -407,63 +280,65 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="px-6 pb-20 pt-8 sm:px-10 lg:px-16">
-        <div
-          className="mx-auto flex w-full max-w-6xl flex-col gap-6 rounded-[2rem] p-8 shadow-[var(--shadow-card)] sm:p-10 lg:flex-row lg:items-end lg:justify-between"
-          style={{ background: "var(--gradient-contact)" }}
-          data-aos="fade-up"
-        >
-          <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[var(--color-secondary)]">
-              Contact
-            </p>
-            <h2 className="mt-4 font-display text-4xl text-[var(--color-ink)] sm:text-5xl">
-              Open to opportunities where thoughtful UI and dependable engineering matter.
-            </h2>
-            <p className="mt-4 text-lg leading-8 text-[var(--color-muted)]">
-              Based in {profile.location}. The best way to reach me is{" "}
+      <section id="contact" className="cinematic-section pb-20 pt-10 sm:pb-24 sm:pt-12 lg:pb-28">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div
+            className="surface-panel flex w-full flex-col gap-6 rounded-[2rem] p-8 sm:p-10 lg:flex-row lg:items-end lg:justify-between"
+            style={{ background: "var(--gradient-contact)" }}
+            data-aos="fade-up"
+          >
+            <div className="max-w-2xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[var(--color-secondary)]">
+                Contact
+              </p>
+              <h2 className="mt-4 font-display text-4xl text-[var(--color-ink)] sm:text-5xl">
+                Open to opportunities where thoughtful UI and dependable engineering matter.
+              </h2>
+              <p className="mt-4 text-lg leading-8 text-[var(--color-muted)]">
+                Based in {profile.location}. The best way to reach me is{" "}
+                <a
+                  href={`mailto:${profile.email}`}
+                  className="font-semibold text-[var(--color-accent)]"
+                >
+                  {profile.email}
+                </a>
+                .
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row">
               <a
                 href={`mailto:${profile.email}`}
-                className="font-semibold text-[var(--color-accent)]"
+                className="primary-button inline-flex items-center justify-center rounded-full bg-[var(--color-accent)] px-6 py-3 text-sm font-semibold text-white transition hover:translate-y-[-2px]"
               >
-                {profile.email}
+                <span>Email</span>
               </a>
-              .
-            </p>
-          </div>
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <a
-              href={`mailto:${profile.email}`}
-              className="inline-flex items-center justify-center rounded-full bg-[var(--color-accent)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#0d1457]"
-            >
-              Email
-            </a>
-            <a
-              href={profile.linkedinUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center rounded-full border px-6 py-3 text-sm font-semibold transition hover:translate-y-[-1px]"
-              style={{
-                background: "var(--button-secondary-bg)",
-                color: "var(--button-secondary-text)",
-                borderColor: "var(--button-secondary-border)",
-              }}
-            >
-              LinkedIn
-            </a>
-            <a
-              href={profile.githubUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center rounded-full border px-6 py-3 text-sm font-semibold transition hover:translate-y-[-1px]"
-              style={{
-                background: "var(--button-secondary-bg)",
-                color: "var(--button-secondary-text)",
-                borderColor: "var(--button-secondary-border)",
-              }}
-            >
-              GitHub
-            </a>
+              <a
+                href={profile.linkedinUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center rounded-full border px-6 py-3 text-sm font-semibold transition hover:translate-y-[-2px] hover:border-[var(--color-accent)]"
+                style={{
+                  background: "var(--button-secondary-bg)",
+                  color: "var(--button-secondary-text)",
+                  borderColor: "var(--button-secondary-border)",
+                }}
+              >
+                LinkedIn
+              </a>
+              <a
+                href={profile.githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center rounded-full border px-6 py-3 text-sm font-semibold transition hover:translate-y-[-2px] hover:border-[var(--color-accent)]"
+                style={{
+                  background: "var(--button-secondary-bg)",
+                  color: "var(--button-secondary-text)",
+                  borderColor: "var(--button-secondary-border)",
+                }}
+              >
+                GitHub
+              </a>
+            </div>
           </div>
         </div>
       </section>

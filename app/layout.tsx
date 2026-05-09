@@ -18,7 +18,7 @@ const bodyFont = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Shabil Dixon | Software Engineer",
   description:
-    "Portfolio for Shabil Dixon featuring frontend, systems, and security-oriented software engineering work.",
+    "Portfolio for Shabil Dixon featuring frontend-focused, API-driven full-stack web applications built with React, Next.js, TypeScript, Supabase, and AI product workflows.",
 };
 
 export default function RootLayout({

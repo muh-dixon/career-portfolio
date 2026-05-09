@@ -6,17 +6,16 @@
   --color-paper: #ffffff;
   --color-ink: #161c2d;
   --color-accent: #142ef0;
-  --color-accent-soft: rgba(8, 15, 72, 0.12);
+  --color-accent-soft: rgba(8, 15, 72, 0.1);
   --color-secondary: #080f48;
-  --color-border: rgba(8, 15, 72, 0.18);
-  --color-muted: rgba(27, 35, 60, 0.82);
+  --color-border: rgba(8, 15, 72, 0.16);
+  --color-muted: rgba(27, 35, 60, 0.78);
   --color-nav: rgba(22, 28, 45, 0.84);
-  --color-glow-a: rgba(8, 15, 72, 0.12);
-  --color-glow-b: rgba(62, 84, 211, 0.16);
   --nav-surface: rgba(255, 255, 255, 0.94);
   --gradient-panel: linear-gradient(145deg, #080f48 0%, #1c2670 55%, #3e54d3 100%);
   --gradient-contact: linear-gradient(135deg, #e8eeff 0%, #ffffff 45%, #dde6ff 100%);
-  --shadow-card: 0 20px 80px rgba(8, 15, 72, 0.14);
+  --shadow-card: 0 20px 60px rgba(8, 15, 72, 0.12);
+  --shadow-card-hover: 0 24px 70px rgba(8, 15, 72, 0.16);
   --button-secondary-bg: rgba(255, 255, 255, 0.92);
   --button-secondary-text: #080f48;
   --button-secondary-border: rgba(8, 15, 72, 0.22);
@@ -28,17 +27,16 @@ html[data-theme="dark"] {
   --color-paper: #121833;
   --color-ink: #edf1ff;
   --color-accent: #8ea0ff;
-  --color-accent-soft: rgba(142, 160, 255, 0.16);
+  --color-accent-soft: rgba(142, 160, 255, 0.14);
   --color-secondary: #c5d0ff;
   --color-border: rgba(142, 160, 255, 0.18);
   --color-muted: rgba(237, 241, 255, 0.76);
   --color-nav: rgba(237, 241, 255, 0.76);
-  --color-glow-a: rgba(72, 88, 196, 0.24);
-  --color-glow-b: rgba(142, 160, 255, 0.18);
-  --nav-surface: rgba(18, 24, 51, 0.84);
+  --nav-surface: rgba(18, 24, 51, 0.9);
   --gradient-panel: linear-gradient(145deg, #10173a 0%, #18245b 55%, #4b60e2 100%);
   --gradient-contact: linear-gradient(135deg, #141b3b 0%, #101633 45%, #1b2350 100%);
-  --shadow-card: 0 24px 70px rgba(2, 6, 23, 0.42);
+  --shadow-card: 0 22px 60px rgba(2, 6, 23, 0.36);
+  --shadow-card-hover: 0 26px 72px rgba(2, 6, 23, 0.42);
   --button-secondary-bg: rgba(18, 24, 51, 0.78);
   --button-secondary-text: #edf1ff;
   --button-secondary-border: rgba(142, 160, 255, 0.22);
@@ -57,12 +55,14 @@ html[data-theme="dark"] {
 
 html {
   background: var(--background);
+  scroll-padding-top: 2rem;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-body), sans-serif;
+  overflow-x: hidden;
 }
 
 a {
@@ -76,4 +76,83 @@ a {
 
 .font-display {
   font-family: var(--font-display), serif;
+}
+
+.portfolio-shell {
+  position: relative;
+}
+
+.cinematic-section {
+  position: relative;
+}
+
+.cinematic-section::before {
+  content: "";
+  position: absolute;
+  left: max(1.5rem, calc((100vw - 80rem) / 2));
+  right: max(1.5rem, calc((100vw - 80rem) / 2));
+  top: 0;
+  height: 1px;
+  background: var(--color-border);
+  opacity: 0.8;
+}
+
+.surface-panel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-paper);
+  box-shadow: var(--shadow-card);
+}
+
+.hero-panel {
+  min-height: clamp(34rem, 68vh, 46rem);
+}
+
+.hero-title {
+  color: var(--color-ink);
+}
+
+.primary-button {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 24px rgba(8, 15, 72, 0.12);
+}
+
+.project-card {
+  position: relative;
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--color-accent) 34%, var(--color-border));
+  box-shadow: var(--shadow-card-hover);
+}
+
+.skill-chip {
+  border: 1px solid var(--color-border);
+  background: var(--color-accent-soft);
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+.skill-chip:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--color-accent) 28%, var(--color-border));
+  box-shadow: 0 10px 24px rgba(8, 15, 72, 0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
